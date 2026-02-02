@@ -703,7 +703,7 @@ export default function DashboardFinance() {
               console.log("Navigation vers l'historique...");
               navigate('/finance/history');
             }}
-            className="h-[52px] w-[52px] flex items-center justify-center bg-white/5 border border-white/10 rounded-[1.2rem] text-gray-400 hover-text-bright hover-bg-light transition-all active:scale-95 shadow-lg shrink-0"
+            className="h-[52px] w-[52px] flex items-center justify-center bg-white/5 rounded-[1.3rem] text-gray-400 hover-text-bright hover-bg-light transition-all active:scale-95 shadow-inner shrink-0"
             title="Historique complet"
           >
             <History size={22} />

@@ -2,76 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ton style global */
+/* --- GLOBAL --- */
 body {
-  background-color: theme('colors.background');
-  color: white;
+  @apply bg-background text-white; /* Utilise @apply pour rester dans la logique Tailwind */
 }
 
-/* Pour cacher les flèches des inputs nombre */
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+/* Reset des inputs number */
+@layer base {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
-/* src/index.css */
 
+/* --- UTILITIES (Helpers) --- */
 @layer utilities {
-  /* Cacher la barre de scroll pour Chrome, Safari et Opera */
+  /* Scrollbar cachée */
   .custom-scrollbar::-webkit-scrollbar {
     display: none;
   }
-
-  /* Cacher la barre de scroll pour IE, Edge et Firefox */
   .custom-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-}
-/* Uniquement pour les appareils avec une souris (PC) */
-@media (hover: hover) {
-  .shadow-hover-fix:hover {
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    background-color: rgba(255, 255, 255, 0.05) !important;
-  }
-
-  .btn-primary-fix:hover {
-    background-color: #6366f1 !important; /* indigo-500 */
-  }
-
-  .btn-ghost-fix:hover {
-    color: white !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
-    background-color: rgba(255, 255, 255, 0.05) !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
-/* Effet au toucher pour TOUT LE MONDE (Mobile & PC) */
-.shadow-hover-fix:active,
-.btn-primary-fix:active,
-.btn-ghost-fix:active {
-  opacity: 0.8;
-}
-@media (hover: hover) {
-  .hover-bg-light:hover {
-    background-color: rgba(255, 255, 255, 0.1) !important;
+/* --- COMPONENTS (Boutons & États) --- */
+@layer components {
+  /* 1. On définit l'état actif (clic/touch) pour TOUT LE MONDE d'abord.
+     C'est la base de l'interaction tactile.
+  */
+  .shadow-hover-fix:active,
+  .btn-primary-fix:active,
+  .btn-ghost-fix:active,
+  .hover-bg-light:active,
+  .hover-bg-soft:active,
+  .hover-text-bright:active {
+    @apply opacity-80 scale-[0.97] transform transition-transform;
   }
-  .hover-bg-soft:hover {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-  }
-  .hover-text-bright:hover {
-    color: #ffffff !important;
-  }
-  .hover-border-medium:hover {
-    border-color: rgba(255, 255, 255, 0.3) !important;
-  }
-}
 
-/* --- FEEDBACK TACTILE (MOBILE & PC) --- */
-/* On remplace le hover par un effet d'enfoncement au clic */
-.hover-bg-light:active,
-.hover-bg-soft:active,
-.hover-text-bright:active {
-  opacity: 0.7;
-  transform: scale(0.97);
+  /* 2. On définit le HOVER uniquement pour les souris (PC).
+     Grâce à @layer, plus besoin de !important, Tailwind gère la priorité.
+  */
+  @media (hover: hover) {
+    .shadow-hover-fix:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-primary-fix:hover {
+      @apply bg-indigo-500;
+    }
+
+    .btn-ghost-fix:hover {
+      @apply text-white border-white/30 bg-white/5;
+    }
+
+    .hover-bg-light:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .hover-bg-soft:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .hover-text-bright:hover {
+      @apply text-white;
+    }
+
+    .hover-border-medium:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+  }
 }

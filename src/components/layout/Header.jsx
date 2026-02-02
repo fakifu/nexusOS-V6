@@ -22,10 +22,22 @@ export default function Header({ activePath, isScrolled, handleSmartBack }) {
 
   return (
     <header
-      className={`fixed ${UI.layout.topMargin} left-0 right-0 z-40 transition-all pointer-events-none 
-        ${UI.layout.headerOffset} 
-        ${UI.layout.pagePadding}`}
-    >
+  /* 1. On retire l'attribut style pour ne plus bloquer le PC */
+  className={`
+    fixed left-0 right-0 z-40 transition-all pointer-events-none
+    
+    /* 2. MOBILE (Par défaut) : Calcul avec Tailwind Arbitrary Value */
+    /* Note : Les underscores (_) remplacent les espaces dans Tailwind */
+    top-[calc(12px_+_env(safe-area-inset-top,0px))]
+
+    /* 3. PC (md: et plus) : On applique ta variable UI uniquement sur PC */
+    /* Le 'md:' permet d'écraser la valeur mobile ci-dessus */
+    md:${UI.layout.topMargin}
+    
+    ${UI.layout.headerOffset} 
+    ${UI.layout.pagePadding}
+  `}
+>
       <div
         className={`
           flex justify-between items-center pointer-events-auto 
