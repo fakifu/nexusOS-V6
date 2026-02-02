@@ -4,7 +4,6 @@ export default function useLockBodyScroll(isLocked = true) {
   useLayoutEffect(() => {
     if (!isLocked) return;
 
-<<<<<<< HEAD
     // 1. Création d'une balise style unique
     const styleId = 'lock-scroll-critical';
     let style = document.getElementById(styleId);
@@ -36,17 +35,4 @@ export default function useLockBodyScroll(isLocked = true) {
       if (el) el.remove();
     };
   }, [isLocked]);
-=======
-    // 1. On sauvegarde le style original (souvent 'visible' ou '')
-    const originalStyle = window.getComputedStyle(document.body).overflow;
-
-    // 2. On bloque le scroll
-    document.body.style.overflow = 'hidden';
-
-    // 3. Fonction de nettoyage : on remet comme c'était quand le composant est démonté
-    return () => {
-      document.body.style.overflow = originalStyle;
-    };
-  }, [isLocked]); // Se ré-exécute si l'état de verrouillage change
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
 }

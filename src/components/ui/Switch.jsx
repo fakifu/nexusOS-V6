@@ -1,18 +1,8 @@
 import React, { useId } from 'react';
 import { motion } from 'framer-motion';
 
-<<<<<<< HEAD
 export default function Switch({ options, value, onChange, colors = {} }) {
   const uniqueLayoutId = useId();
-=======
-export default function Switch({
-  options, // [{ value, label, icon, className? }] -> className permet de gérer la largeur
-  value,
-  onChange,
-  colors = {}, // {0: {bg, border, text}, ...} OU {left, right}
-}) {
-  const uniqueLayoutId = useId(); // Pour éviter les conflits si plusieurs switchs sur la page
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
   const totalOptions = options.length;
 
   return (
@@ -20,21 +10,11 @@ export default function Switch({
       {options.map((option, index) => {
         const isActive = value === option.value;
 
-<<<<<<< HEAD
-=======
-        // --- RÉSOLUTION DES COULEURS ---
-        // On cherche la config spécifique à l'index, sinon fallback sur left/right pour les switchs binaires
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
         let colorConfig = colors[index];
         if (!colorConfig && totalOptions === 2) {
           colorConfig = index === 0 ? colors.left : colors.right;
         }
-<<<<<<< HEAD
 
-=======
-        
-        // Fallback par défaut (Indigo)
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
         const activeColors = colorConfig || {
           bg: 'rgba(99, 102, 241, 0.2)',
           border: 'rgba(99, 102, 241, 0.5)',
@@ -46,7 +26,6 @@ export default function Switch({
             key={option.value}
             type="button"
             onClick={() => onChange(option.value)}
-<<<<<<< HEAD
             className={`
               relative z-10 h-full flex items-center justify-center gap-2 text-[10px] uppercase tracking-wider font-bold transition-colors duration-200 rounded-full
               ${option.className ? option.className : 'flex-1'}
@@ -57,16 +36,6 @@ export default function Switch({
               }
             `}
           >
-=======
-            // Si option.className existe (ex: w-12), on l'utilise, sinon on prend flex-1 (largeur égale)
-            className={`
-              relative z-10 h-full flex items-center justify-center gap-2 text-[10px] uppercase tracking-wider font-bold transition-colors duration-200 rounded-full outline-none
-              ${option.className ? option.className : 'flex-1'}
-              ${isActive ? activeColors.text : 'text-gray-500 hover:text-gray-300'}
-            `}
-          >
-            {/* FOND ANIMÉ (La Pillule Magique) */}
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
             {isActive && (
               <motion.div
                 layoutId={`active-pill-${uniqueLayoutId}`}
@@ -79,22 +48,12 @@ export default function Switch({
                 }}
               />
             )}
-<<<<<<< HEAD
             <span className="relative z-20 flex items-center gap-2">
               {option.icon && <option.icon size={16} />}
               {option.label && (
                 <span
                   className={option.className?.includes('w-12') ? 'hidden' : ''}
                 >
-=======
-
-            {/* CONTENU DU BOUTON */}
-            <span className="relative z-20 flex items-center gap-2">
-              {option.icon && <option.icon size={16} />}
-              {/* On cache le label si c'est un bouton rond (w-12 par ex) ou si demandé */}
-              {option.label && (
-                <span className={option.className?.includes('w-12') ? 'hidden md:block' : ''}>
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
                   {option.label}
                 </span>
               )}
@@ -104,8 +63,4 @@ export default function Switch({
       })}
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993

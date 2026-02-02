@@ -54,11 +54,7 @@ const CategorySelector = ({ selected, onSelect }) => (
             className={`flex items-center gap-3 p-3 rounded-2xl border text-left transition-all group relative overflow-hidden ${
               isSelected
                 ? 'bg-indigo-500/20 border-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.3)]'
-<<<<<<< HEAD
                 : 'bg-white/5 border-white/5 hover-bg-light opacity-70 hover:opacity-100'
-=======
-                : 'bg-white/5 border-white/5 hover:bg-white/10 opacity-70 hover:opacity-100'
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
             }`}
           >
             <div
@@ -164,17 +160,12 @@ export default function DashboardFinance() {
         supabase
           .from('personal_transactions')
           .select('*')
-<<<<<<< HEAD
           .gte('date', searchLimitDate)
           // 1er Tri : Par jour (du plus récent au plus vieux)
           .order('date', { ascending: false })
           // 2ème Tri : Par heure (du plus récent au plus vieux)
           // 👇 C'EST ICI QUE LA MAGIE OPÈRE
           .order('created_at', { ascending: false }),
-=======
-          .gte('date', searchLimitDate) // On récupère 2 ans pour la recherche
-          .order('date', { ascending: false }),
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
         supabase
           .from('monthly_budgets')
           .select('*')
@@ -372,11 +363,7 @@ export default function DashboardFinance() {
                     <h3 className={TEXT.h3}>Ajouter</h3>
                     <button
                       onClick={() => setShowAddForm(false)}
-<<<<<<< HEAD
                       className="p-2 bg-white/5 rounded-full text-gray-400 hover-text-bright transition"
-=======
-                      className="p-2 bg-white/5 rounded-full text-gray-400 hover:text-white transition"
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
                     >
                       <X size={18} />
                     </button>
@@ -511,11 +498,7 @@ export default function DashboardFinance() {
             );
             setCurrentMonth(newDate);
           }}
-<<<<<<< HEAD
           className="p-3 text-gray-500 hover-text-bright hover-bg-soft rounded-xl transition"
-=======
-          className="p-3 text-gray-500 hover:text-white hover:bg-white/5 rounded-xl transition"
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
         >
           <ArrowLeft size={16} />
         </button>
@@ -538,11 +521,7 @@ export default function DashboardFinance() {
             );
             setCurrentMonth(newDate);
           }}
-<<<<<<< HEAD
           className="p-3 text-gray-500 hover-text-bright hover-bg-soft rounded-xl transition"
-=======
-          className="p-3 text-gray-500 hover:text-white hover:bg-white/5 rounded-xl transition"
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
         >
           <ArrowLeft size={16} className="rotate-180" />
         </button>
@@ -577,11 +556,7 @@ export default function DashboardFinance() {
           <div className="flex gap-3">
             <button
               onClick={() => setExpandBudgets(!expandBudgets)}
-<<<<<<< HEAD
               className="text-xs text-gray-500 flex items-center gap-1 hover-text-bright transition"
-=======
-              className="text-xs text-gray-500 flex items-center gap-1 hover:text-white transition"
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
             >
               {expandBudgets ? (
                 <ChevronUp size={14} />
@@ -605,11 +580,7 @@ export default function DashboardFinance() {
 
         <div
           onClick={() => setExpandBudgets(!expandBudgets)}
-<<<<<<< HEAD
           className={`bg-[#050505] border border-white/10 rounded-[1.8rem] relative overflow-hidden p-4 space-y-4 cursor-pointer hover-border-medium group transition-colors`}
-=======
-          className={`bg-[#050505] border border-white/10 rounded-[1.8rem] relative overflow-hidden p-4 space-y-4 cursor-pointer hover:border-white/30 group transition-colors`}
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
         >
           {visibleExpenses.length === 0 ? (
             <div className="text-center py-6">
@@ -656,11 +627,7 @@ export default function DashboardFinance() {
                         >
                           <conf.icon size={14} />
                         </div>
-<<<<<<< HEAD
                         <span className="font-bold text-gray-300 text-xs group-hover-text-bright transition-colors">
-=======
-                        <span className="font-bold text-gray-300 text-xs group-hover:text-white transition-colors">
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
                           {conf.label}
                         </span>
                       </div>
@@ -710,14 +677,9 @@ export default function DashboardFinance() {
       </div>
 
       {/* --- 6. BARRE D'OUTILS (RECHERCHE + HISTORIQUE) --- */}
-<<<<<<< HEAD
       <div className="space-y-3">
         {' '}
         {/* Parent principal avec très peu d'espace entre enfants */}
-=======
-      <div className="space-y-3"> {/* Parent principal avec très peu d'espace entre enfants */}
-        
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
         {/* 1. Titre */}
         <div className="flex justify-between items-center px-1">
           <h3 className={TEXT.label}>
@@ -726,10 +688,6 @@ export default function DashboardFinance() {
               : 'Transactions'}
           </h3>
         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
         {/* 2. Barre de recherche + Historique */}
         <div className="flex gap-2 items-center">
           <div className="flex-1">
@@ -745,26 +703,16 @@ export default function DashboardFinance() {
               console.log("Navigation vers l'historique...");
               navigate('/finance/history');
             }}
-<<<<<<< HEAD
             className="h-[52px] w-[52px] flex items-center justify-center bg-white/5 border border-white/10 rounded-[1.2rem] text-gray-400 hover-text-bright hover-bg-light transition-all active:scale-95 shadow-lg shrink-0"
-=======
-            className="h-[52px] w-[52px] flex items-center justify-center bg-white/5 border border-white/10 rounded-[1.2rem] text-gray-400 hover:text-white hover:bg-white/10 transition-all active:scale-95 shadow-lg shrink-0"
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
             title="Historique complet"
           >
             <History size={22} />
           </button>
         </div>
-<<<<<<< HEAD
         {/* 3. Liste des Transactions */}
         <div className="space-y-2 pt-1">
           {' '}
           {/* Un seul conteneur space-y-2 ici */}
-=======
-
-        {/* 3. Liste des Transactions */}
-        <div className="space-y-2 pt-1"> {/* Un seul conteneur space-y-2 ici */}
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
           {displayedTransactions.length === 0 ? (
             <div className={`${UI.card} p-8 text-center text-gray-500 italic`}>
               {searchQuery
@@ -785,13 +733,9 @@ export default function DashboardFinance() {
                     className={`${UI.cardInteractive} ${SHAPES.item} flex justify-between items-center p-3`}
                   >
                     <div className="flex items-center gap-3">
-<<<<<<< HEAD
                       <div
                         className={`p-2.5 rounded-xl ${conf.bg} ${conf.color} border ${conf.border}`}
                       >
-=======
-                      <div className={`p-2.5 rounded-xl ${conf.bg} ${conf.color} border ${conf.border}`}>
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
                         <conf.icon size={18} />
                       </div>
                       <div>
@@ -804,15 +748,11 @@ export default function DashboardFinance() {
                       </div>
                     </div>
 
-<<<<<<< HEAD
                     <span
                       className={`font-bold ${TEXT.value} ${
                         t.amount > 0 ? 'text-emerald-400' : 'text-white'
                       }`}
                     >
-=======
-                    <span className={`font-bold ${TEXT.value} ${t.amount > 0 ? 'text-emerald-400' : 'text-white'}`}>
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
                       {t.amount > 0 ? '+' : ''}
                       {formatEuro(t.amount)}
                     </span>
@@ -834,10 +774,6 @@ export default function DashboardFinance() {
         </div>
       </div>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
       {/* --- MODALES --- */}
       <Modal
         isOpen={showBudgetModal}

@@ -14,11 +14,7 @@ export default function ConfirmModal({ isOpen, onClose, onConfirm, title, messag
         <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
         <p className="text-gray-400 text-sm mb-6 leading-relaxed">{message}</p>
         <div className="flex gap-3">
-<<<<<<< HEAD
           <button onClick={onClose} className="flex-1 py-3 rounded-xl border border-white/10 text-gray-300 font-bold hover-bg-soft transition">
-=======
-          <button onClick={onClose} className="flex-1 py-3 rounded-xl border border-white/10 text-gray-300 font-bold hover:bg-white/5 transition">
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
             Annuler
           </button>
           <button onClick={() => { onConfirm(); onClose(); }} className={`flex-1 py-3 rounded-xl font-bold text-white shadow-lg transition transform active:scale-95 ${

@@ -98,11 +98,7 @@ export default function BudgetForm({
               className={`flex items-center justify-between gap-3 p-3 rounded-2xl border transition-all ${
                 isActive
                   ? 'bg-white/5 border-white/10'
-<<<<<<< HEAD
                   : 'bg-transparent border-transparent opacity-60 hover:opacity-100 hover-bg-soft'
-=======
-                  : 'bg-transparent border-transparent opacity-60 hover:opacity-100 hover:bg-white/5'
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
               }`}
             >
               <div className="flex items-center gap-3 flex-1 min-w-0">

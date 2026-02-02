@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabaseClient';
@@ -279,15 +278,3 @@ export default function DashboardBusiness() {
     </div>
   );
 }
-=======
-import React from 'react';
-
-export default function DashboardBusiness() {
-  return (
-    <div className="text-white">
-      <h1 className="text-3xl font-bold mb-4">Business Hub</h1>
-      <p className="text-gray-400">Gestion des revenus, taxes et stocks.</p>
-    </div>
-  );
-}
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993

@@ -23,15 +23,12 @@ import DashboardFinance from './pages/finance/DashboardFinance';
 import FinanceHistory from './pages/finance/FinanceHistory';
 
 import DashboardBusiness from './pages/business/DashboardBusiness';
-<<<<<<< HEAD
 import Resell from './pages/business/resell/Resell';
 // ... autres imports
 import BatchDetails from './pages/business/resell/BatchDetails';
 import Formation from './pages/business/formation/Formation';
 import Tax from './pages/business/tax/Tax';
 import BusinessHistory from './pages/business/BusinessHistory';
-=======
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
 
 import DashboardPersonal from './pages/personal/DashboardPersonal';
 
@@ -74,14 +71,11 @@ function App() {
 
               {/* 3. Business */}
               <Route path="/business" element={<DashboardBusiness />} />
-<<<<<<< HEAD
               <Route path="/business/resell" element={<Resell />} />
               <Route path="/business/batch/:id" element={<BatchDetails />} />
               <Route path="/business/formation" element={<Formation />} />
               <Route path="/business/fiscalite" element={<Tax />} />
               <Route path="/business/history" element={<BusinessHistory />} />
-=======
->>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
 
               {/* 4. Personal */}
               <Route path="/personal" element={<DashboardPersonal />} />
