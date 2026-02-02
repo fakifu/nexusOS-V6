@@ -22,7 +22,11 @@ export default function SearchBar({
       {value && (
         <button
           onClick={() => onChange('')}
+<<<<<<< HEAD
+          className="absolute inset-y-0 right-4 flex items-center text-gray-500 hover-text-bright transition-colors"
+=======
           className="absolute inset-y-0 right-4 flex items-center text-gray-500 hover:text-white transition-colors"
+>>>>>>> b059916d660855e6ecbbb30e2c0fbe19f4e98993
         >
           <X size={18} />
         </button>
